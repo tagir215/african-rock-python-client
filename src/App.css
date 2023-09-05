@@ -1,0 +1,21 @@
+html{
+  margin-bottom: 0;
+}
+.App{
+  background: var(--background-color);
+}
+.modal-open{
+  overflow: hidden;
+}
+
+:root {
+  --primary-color: #ffffff;
+  --secondary-color: #00355e;
+  --background-color: rgb(247, 247, 247);
+  --attention-color:rgb(255, 183, 0);
+  --info-color:rgb(78, 78, 78);
+  --extra-color:grey;
+  --details-color:brown;
+  --product-color:rgb(91, 91, 91);
+  --border-color:rgb(213, 210, 210);
+} 

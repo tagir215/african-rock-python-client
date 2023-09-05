@@ -1,0 +1,119 @@
+.grid{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100%;
+    justify-content: center;
+    margin-right: 5px;
+    margin-left: auto;
+}
+.product-info{
+    display: flex;
+    margin-right:10px;
+    margin-left: auto;
+    flex-direction: column;
+}
+.type{
+    font-size: 24px;
+    font-weight: bold;
+}
+.tier{
+    font-size: 15px;
+    color: var(--extra-color);
+    font-style: italic;
+}
+.delivery-location{
+    font-size:13px;
+    color: var(--details-color);
+    font-weight: 700;
+}
+.add-to-cart-button{
+    max-width: 100px;
+    background: var(--secondary-color);
+    border-radius: 20px;
+    border: none;
+    padding: 10px;
+    margin-right: 0px;
+    margin-left: auto;
+    margin-top: 10px;
+    color: var(--primary-color);
+}
+.delivery-time{
+    font-size: 12px;
+    color: var(--details-color);
+}
+.price{
+    font-size: 27px;
+    font-weight: bold;
+    color: var(--attention-color);
+}
+.product-title{
+    margin-right:5px;
+    font-size: 13px;
+    color: var(--info-color);
+    font-weight: bold;
+}
+.product-div{
+    margin:20px 10px;
+    max-width: 400px;
+    min-height: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    padding:20px;
+    background: var(--primary-color);
+    border:1px solid var(--border-color);
+    border-radius: 10px;
+    transition: 0.2s;
+    cursor: pointer;
+}
+.product-div:hover{
+    transform: scale(102%);
+}
+.product-div img{
+    width: 130px;
+    height: 130px;
+}
+.product-name{
+    font-size: 10px;
+}
+.product-price{
+    font-size: medium;
+    font-weight: bold;
+}
+.product-deliverytime{
+    font-size: medium;
+}
+.product-destination{
+    font-size: small;
+}
+.component{
+    font-size: 12px;
+    font-style: italic;
+    color: var(--product-color);
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+.component-div{
+    background: rgb(248, 248, 248);
+    border-radius: 3px;
+    margin:3px;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+.loading-div{
+    min-height: 100px;
+    width: 100%;
+}
+
+.loading-spinner {
+  border: 4px solid rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  border-top: 4px solid var(--attention-color);
+  width: 40px;
+  height: 40px;
+  margin: auto auto;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

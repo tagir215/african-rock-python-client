@@ -1,0 +1,25 @@
+.computer-form{
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    max-width: 200px;
+    margin-top:50px;
+    margin-left: auto;
+    margin-right: auto;
+    padding:30px;
+    background: var(--background-color);
+
+}
+.computer-form label{
+    font-size: 30px;
+}
+
+.computer-form select{
+    font-size:  20px;
+}
+.computer-form button{
+    height: 30px;
+    margin-top:20px;
+    font-size: 20px;
+    margin-right: 0px;
+}

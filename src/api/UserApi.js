@@ -1,0 +1,17 @@
+import axios from "axios";
+const baseURL = "https://arp200-f1d4c58ab3e8.herokuapp.com";
+
+export async function registerAccount(token){
+    return axios.post(baseURL+"/api/v1/user/registration",token)
+}
+
+export async function loginAccount(token){
+    return axios.post(baseURL+"/api/v1/user/login",token)
+    .then((response)=>{
+        return response.data;
+    })
+    .catch((error)=>{
+        console.log(error);
+        return error.response.data;
+    })
+}

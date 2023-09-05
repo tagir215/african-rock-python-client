@@ -1,0 +1,33 @@
+.search-bar{
+    height: 35px;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 20px;
+    display: flex;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+.search-bar:focus-within{
+    outline: 2px solid orange;
+}
+
+.search-bar input{
+    height: inherit;
+    width: 400px;
+    box-sizing: border-box;
+    border: none;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    
+}
+.search-bar input:focus{
+    outline: none;
+}
+.search-bar img{
+    max-height: inherit;
+    padding: 7px;
+    width: auto;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background: rgb(255, 149, 0);
+}

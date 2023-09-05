@@ -1,0 +1,13 @@
+.cart-product-price{
+    color: var(--attention-color);
+}
+.cart-div{
+    margin:50px 100px;
+}
+.cart-div2{
+    margin:50px;
+}
+.cart-total{
+    font-size: 20px;
+    margin-bottom:50px;
+}

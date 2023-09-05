@@ -1,0 +1,16 @@
+.categories-div{
+    width: 20%;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.categories-div a{
+    margin-left: 10px;
+    display: inline-block;
+}
+categories-div span{
+    font-size: 20px;
+    font-weight: bolder;
+    color: black;
+    display:inline-block;
+}
