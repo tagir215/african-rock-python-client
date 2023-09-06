@@ -49,8 +49,9 @@ export default function Navbar() {
                 </a>
                 <span id="cart-number">{cartState.size}</span>
             </div>
-        </header>
+        </header>    
         
+
 <div className="space"></div>
         </>
     )
