@@ -12,6 +12,7 @@ export default function Grid() {
     window.addEventListener("scroll", loadMore);
     const [isLoading, setIsLoading] = useState(false);
 
+    //ko
     function loadMore() {
         if (!isLoading && window.innerHeight + window.scrollY >= document.body.offsetHeight - 20) {
         setIsLoading(true);

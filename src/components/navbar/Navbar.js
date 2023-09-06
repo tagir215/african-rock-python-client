@@ -6,6 +6,8 @@ import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { setSize } from "../../redux/ShoppingCartSlice";
 import baseURL from "../../config";
+
+
 let initiated = false;
 export default function Navbar() {
     const cartState = useSelector(state=>state.cart);
