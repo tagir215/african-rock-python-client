@@ -46,6 +46,7 @@ export async function viewCart(){
 }
 
 export async function getSize(){
+    console.log(baseURL)
     return axios.get(baseURL+"/api/v1/cart/get-size")
     .then(response=>{
         return response.data;
