@@ -2,7 +2,7 @@ import React from "react";
 import "./LoginForm.css";
 import { loginAccount } from "../../api/UserApi";
 import { useState } from "react";
-import baseURL from "../../config";
+import {baseURL} from "../../config";
 
 export default function LoginForm(){
     const [message, setMessage] = useState("");

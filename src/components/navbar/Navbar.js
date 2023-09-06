@@ -5,7 +5,7 @@ import { getSize } from "../../api/CartApi";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { setSize } from "../../redux/ShoppingCartSlice";
-import baseURL from "../../config";
+import {baseURL} from "../../config";
 
 
 let initiated = false;
