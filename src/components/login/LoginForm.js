@@ -2,6 +2,7 @@ import React from "react";
 import "./LoginForm.css";
 import { loginAccount } from "../../api/UserApi";
 import { useState } from "react";
+import baseURL from "../../config";
 
 export default function LoginForm(){
     const [message, setMessage] = useState("");
@@ -28,7 +29,7 @@ export default function LoginForm(){
                 <input type="input" placeholder="Email / Username"></input>
                 <input type="input" placeholder="password"></input>
                 <input type="submit" value={"login"} onClick={handleLoginButton}></input>
-                <a href="http://localhost:3000/registration">
+                <a href={baseURL+"/registration"}>
                     <input className="metro" type="submit" value={"register"}></input>
                 </a>
                 <span>{message}</span>
