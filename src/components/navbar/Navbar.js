@@ -5,7 +5,7 @@ import { getSize } from "../../api/CartApi";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { setSize } from "../../redux/ShoppingCartSlice";
-import {baseURL} from "../../config";
+import { Link } from "react-router-dom";
 
 
 let initiated = false;
@@ -28,9 +28,9 @@ export default function Navbar() {
     return (
         <>
         <header className="App-header">
-            <a href={baseURL}>
+            <Link to={"/"}>
                 <img className='logo-image' src={process.env.PUBLIC_URL + "/logo4.png"} alt=""></img>
-            </a>
+            </Link>
             <div className="deliver-div">
                 <img className='deliver-location' src={process.env.PUBLIC_URL + "/location.png"}></img>
                 <div>
@@ -41,14 +41,14 @@ export default function Navbar() {
             
             <div className="header-filler"></div>
             <div>
-                <a id="sign-in-button" href={baseURL+"/login"}>
+                <Link id="sign-in-button" to={"/login"}>
                     sign in
-                </a>
+                </Link>
             </div>
             <div className="cart">
-                <a href={baseURL+"/cart"}>
-                    <img id="cart-img" src={process.env.PUBLIC_URL + "/Cart.png"} alt="" />
-                </a>
+                <Link to={"/cart"}>
+                    <img id="cart-img" src={"/Cart.png"} alt="" />
+                </Link>
                 <span id="cart-number">{cartState.size}</span>
             </div>
         </header>    

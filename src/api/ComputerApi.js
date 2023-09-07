@@ -1,9 +1,9 @@
 import axios from "axios";
 
-import {baseURL} from "../config";
+import {baseURLServer} from "../config";
 
 export async function getComputers(payload){
-    return axios.post(baseURL + "/api/v1/getComputers/", payload)
+    return axios.post(baseURLServer + "/api/v1/getComputers/", payload)
     .then(response => {
         return response.data; 
     })

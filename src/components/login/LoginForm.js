@@ -2,10 +2,13 @@ import React from "react";
 import "./LoginForm.css";
 import { loginAccount } from "../../api/UserApi";
 import { useState } from "react";
-import {baseURL} from "../../config";
+import {useNavigate, Link} from 'react-router-dom';
 
 export default function LoginForm(){
     const [message, setMessage] = useState("");
+    const navigate = useNavigate()
+
+
     const handleLoginButton = ()=>{
         const inputs = document.getElementsByTagName("input");
         for(let i=0; i<inputs.length; i++){
@@ -18,8 +21,12 @@ export default function LoginForm(){
             userName:inputs[0].value,
             password:inputs[1].value
         }
-        loginAccount(token).then((data)=>{
-            setMessage(data);
+        loginAccount(token).then((response)=>{
+            setMessage(response.data);
+            navigate('/');
+        })
+        .catch(error=>{
+            setMessage(error.response.data)
         })
     }
 
@@ -29,9 +36,9 @@ export default function LoginForm(){
                 <input type="input" placeholder="Email / Username"></input>
                 <input type="input" placeholder="password"></input>
                 <input type="submit" value={"login"} onClick={handleLoginButton}></input>
-                <a href={baseURL+"/registration"}>
+                <Link to={"/registration"}>
                     <input className="metro" type="submit" value={"register"}></input>
-                </a>
+                </Link>
                 <span>{message}</span>
             </div>
         </div>

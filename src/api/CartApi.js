@@ -1,7 +1,7 @@
 import axios from "axios";
-import {baseURL} from "../config";
+import {baseURLServer} from "../config";
 export async function addToCart(id){
-    return axios.post(baseURL+"/api/v1/cart/add/"+id)
+    return axios.post(baseURLServer+"/api/v1/cart/add/"+id)
     .then(response=>{
         return response;
     })
@@ -12,7 +12,7 @@ export async function addToCart(id){
 }
 
 export async function removeFromCart(id){
-    return axios.post(baseURL+"/api/v1/cart/remove/"+id)
+    return axios.post(baseURLServer+"/api/v1/cart/remove/"+id)
     .then(response=>{
         console.log(response);
     })
@@ -24,7 +24,7 @@ export async function removeFromCart(id){
 
 
 export async function clearCart(){
-    return axios.post(baseURL+"/api/v1/cart/clear")
+    return axios.post(baseURLServer+"/api/v1/cart/clear")
     .then(response=>{
         console.log(response);
     })
@@ -35,7 +35,7 @@ export async function clearCart(){
 }
 
 export async function viewCart(){
-    return axios.get(baseURL+"/api/v1/cart/view")
+    return axios.get(baseURLServer+"/api/v1/cart/view")
     .then(response=>{
         return response.data;
     })
@@ -46,8 +46,7 @@ export async function viewCart(){
 }
 
 export async function getSize(){
-    console.log(baseURL)
-    return axios.get(baseURL+"/api/v1/cart/get-size")
+    return axios.get(baseURLServer+"/api/v1/cart/get-size")
     .then(response=>{
         return response.data;
     })

@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "./Cart.css";
-import { viewCart,removeFromCart, getSize } from "../../api/CartApi";
-const ok = false;
+import { viewCart,removeFromCart } from "../../api/CartApi";
+let fetched = false;
 
 export default function Cart(){
     const [data,setData] = useState([]);
 
     useEffect(()=>{
-        if(ok) return;
+        if(fetched) return;
 
         viewCart()
         .then(response=>{
@@ -15,6 +15,7 @@ export default function Cart(){
             console.log(data);
         })
 
+        fetched=true;
     },[])
 
     function handleClick(id){

@@ -1,9 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  type:"TYPE",
-  tier:"TIER",
-  os:"OS",
+  type:"gaming",
+  tier:"budget",
+  os:"windows",
   products:[]
 }
 
