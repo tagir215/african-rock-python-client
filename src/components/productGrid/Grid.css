@@ -15,6 +15,7 @@
 .type{
     font-size: 24px;
     font-weight: bold;
+    color: var(--attention-color);
 }
 .tier{
     font-size: 15px;
@@ -44,7 +45,7 @@
 .price{
     font-size: 27px;
     font-weight: bold;
-    color: var(--attention-color);
+    color: var(--color-price);
 }
 .product-title{
     margin-right:5px;

@@ -1,5 +1,5 @@
 .cart-product-price{
-    color: var(--attention-color);
+    color: var(--color-price);
 }
 .cart-div{
     margin:50px 100px;

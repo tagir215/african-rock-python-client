@@ -12,7 +12,6 @@ export default function Grid() {
     window.addEventListener("scroll", loadMore);
     const [isLoading, setIsLoading] = useState(false);
 
-    //ko
     function loadMore() {
         if (!isLoading && window.innerHeight + window.scrollY >= document.body.offsetHeight - 20) {
         setIsLoading(true);
@@ -45,7 +44,7 @@ export default function Grid() {
             {products.length > 0 && products.map((product, index) => {
                 return (
                     <div key={index} className="product-div" onClick={()=>openModal(product)}>
-                        <img className="product-picture" src={process.env.PUBLIC_URL + "/isomcoms.jpg"} alt="" />
+                        <img className="product-picture" src={"/isomcoms.jpg"} alt="" />
                         <div className="product-info">
                             <span className="type">{"Type: " + computerState.type}</span>
                             <span className="tier">{"Tier: " + computerState.tier}</span>
