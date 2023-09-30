@@ -1,26 +1,30 @@
 import React, { useEffect, useState } from "react";
 import "./Cart.css";
 import { viewCart,removeFromCart } from "../../api/CartApi";
-let fetched = false;
-
-export default function Cart(){
-    const [data,setData] = useState([]);
-
+import { useSelector,useDispatch } from "react-redux";
+import { setProducts , clear } from "../../redux/ShoppingCartSlice";
+import { useNavigate } from "react-router-dom";
+import ComponentMapper from "../mapper/ComponentMapper";
+let alreadyCalled = false;
+export default function Cart({time}){
+    const navigate = useNavigate();
+    const cartState = useSelector(state => state.cart);
+    const dispatch = useDispatch();
     useEffect(()=>{
-        if(fetched) return;
+        if(alreadyCalled) return;
+        alreadyCalled = true;
+        console.log("i was called");
+        if(cartState.products.length<1){
+            viewCart()
+            .then(response=>{
+                dispatch(setProducts(response));
+            })
+        }
+    },[time])
 
-        viewCart()
+    function handleClick(product){
+        removeFromCart(ComponentMapper.productToCartItem(product))
         .then(response=>{
-            setData(response);
-            console.log(data);
-        })
-
-        fetched=true;
-    },[])
-
-    function handleClick(id){
-        removeFromCart(id)
-        .then(response =>{
             window.location.reload();
         })
     }
@@ -28,20 +32,16 @@ export default function Cart(){
     return(
         <div className="cart-div">
             <div className="cart-left">
-                {data && data.map((product,index)=>{
+                {cartState.products && cartState.products.map((product,index)=>{
                     return (<div className="cart-div2" key={index}>
-                        <span>{"product "+product.id}</span>
+                        <span>{"product "+(index+1)}</span>
                         <ul>
-                       {Object.keys(product).map((key) =>
-                            product[key] && product[key].name ? (
-                                <li key={key} className="cart-li">
-                                {product[key].name} <span className="cart-product-price">{product[key].price+"€"} </span> 
-                                </li>
-                            ) : null
-                            )} 
+                            {product.components.map((component,index)=>{
+                                return <li><a href={component.url}>{component.name}</a><span>{"        "+component.price+"$"}</span> </li>
+                            })}
                         </ul>
                         <span className="cart-total">Total: </span><span className="cart-product-price">{product.combinedPrice}</span>
-                        <button onClick={()=>handleClick(product.id)}>remove</button>
+                        <button onClick={()=>handleClick(product)}>remove</button>
                     </div>)
                 })}
 

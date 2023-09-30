@@ -1,7 +1,12 @@
 import axios from "axios";
 import {baseURLServer} from "../config";
-export async function addToCart(id){
-    return axios.post(baseURLServer+"/api/v1/cart/add/"+id)
+import Cookies from "js-cookie";
+const cookieName = "sessionId"
+
+export async function addToCart(cartItem){
+    setCookie();
+
+    return axios.post(baseURLServer+"/api/v1/cart/add/",cartItem, {withCredentials:true})
     .then(response=>{
         return response;
     })
@@ -11,8 +16,9 @@ export async function addToCart(id){
     });
 }
 
-export async function removeFromCart(id){
-    return axios.post(baseURLServer+"/api/v1/cart/remove/"+id)
+export async function removeFromCart(cartItem){
+   
+    return axios.post(baseURLServer+"/api/v1/cart/remove/",cartItem,{withCredentials:true})
     .then(response=>{
         console.log(response);
     })
@@ -24,7 +30,7 @@ export async function removeFromCart(id){
 
 
 export async function clearCart(){
-    return axios.post(baseURLServer+"/api/v1/cart/clear")
+    return axios.post(baseURLServer+"/api/v1/cart/clear",{withCredentials:true})
     .then(response=>{
         console.log(response);
     })
@@ -35,7 +41,7 @@ export async function clearCart(){
 }
 
 export async function viewCart(){
-    return axios.get(baseURLServer+"/api/v1/cart/view")
+    return axios.get(baseURLServer+"/api/v1/cart/view",{withCredentials:true})
     .then(response=>{
         return response.data;
     })
@@ -46,12 +52,20 @@ export async function viewCart(){
 }
 
 export async function getSize(){
-    return axios.get(baseURLServer+"/api/v1/cart/get-size")
+    return axios.get(baseURLServer+"/api/v1/cart/get-size",{withCredentials:true})
     .then(response=>{
         return response.data;
     })
     .catch((error)=>{
         console.log(error)
-        return error;
+        throw error;
     })
+}
+
+function setCookie(){
+    let cookie = Cookies.get(cookieName);
+    if(!cookie){
+        Cookies.set(cookieName,"testpleasework",{expires:1})
+        cookie = Cookies.get(cookieName);
+    }
 }

@@ -11,6 +11,7 @@ export default function Grid() {
     const dispatch = useDispatch();
     window.addEventListener("scroll", loadMore);
     const [isLoading, setIsLoading] = useState(false);
+    const componentNames = ["Motherboard","Case","Gpu","Cpu","CpuCooler","Ram","Storage","PowerUnit" ];
 
     function loadMore() {
         if (!isLoading && window.innerHeight + window.scrollY >= document.body.offsetHeight - 20) {
@@ -44,7 +45,7 @@ export default function Grid() {
             {products.length > 0 && products.map((product, index) => {
                 return (
                     <div key={index} className="product-div" onClick={()=>openModal(product)}>
-                        <img className="product-picture" src={"/isomcoms.jpg"} alt="" />
+                        <img className="product-picture" src={process.env.PUBLIC_URL+"/isomcoms.jpg"} alt="" />
                         <div className="product-info">
                             <span className="type">{"Type: " + computerState.type}</span>
                             <span className="tier">{"Tier: " + computerState.tier}</span>
@@ -52,44 +53,15 @@ export default function Grid() {
                             <span className="delivery-location">delivery to: Finland</span>
                             <span className="delivery-time">delivery time: 2-3d</span>
                         </div>
-                        <div>
-                            <div className="component-div">
-                                <span className="product-title">Motherboard</span>
-                                <span className="component">{product.motherboard.name}</span>
+
+                        {product.components.map((component,index)=>{
+                            return(
+                            <div className="component-div" key={index}>
+                                <span className="product-title">{componentNames[index]}</span>
+                                <span className="component">{component.name}</span>
                             </div>
-                            <div className="component-div">
-                                <span className="product-title">CPU</span>
-                                <span className="component">{product.cpu.name}</span>
-                            </div>
-                            <div className="component-div">
-                                <span className="product-title">Case</span>
-                                <span className="component">{product.pcCase.name}</span>
-                            </div>
-                            <div className="component-div">
-                                <span className="product-title">GPU</span>
-                                <span className="component">{product.gpu.name}</span>
-                            </div>
-                            <div className="component-div">
-                                <span className="product-title">Storage</span>
-                                <span className="component">{product.storage.name}</span>
-                            </div>
-                            <div className="component-div">
-                                <span className="product-title">RAM</span>
-                                <span className="component">{product.ram.name}</span>
-                            </div>
-                            <div className="component-div">
-                                <span className="product-title">CPU Cooler</span>
-                                <span className="component">{product.cpuCooler.name}</span>
-                            </div>
-                            <div className="component-div">
-                                <span className="product-title">powerUnit</span>
-                                <span className="component">{product.powerUnit.name}</span>
-                            </div>
-                            <div className="component-div">
-                                <span className="product-title">OS</span>
-                                <span className="component">{computerState.os}</span>
-                            </div>
-                        </div>
+                            )
+                        })}
                     </div>
                 );
             })}
