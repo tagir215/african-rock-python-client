@@ -65,7 +65,7 @@ export async function getSize(){
 function setCookie(){
     let cookie = Cookies.get(cookieName);
     if(!cookie){
-        Cookies.set(cookieName,"testpleasework",{expires:1})
+        Cookies.set(cookieName,"testpleasework",{expires:1, secure:true})
         cookie = Cookies.get(cookieName);
     }
 }
