@@ -68,8 +68,7 @@ function setCookie(){
         Cookies.set(cookieName,"testpleasework",
         {
             expires:1, 
-            secure:true,
-            domain:".herokuapp.com"
+            secure:true
         })
         cookie = Cookies.get(cookieName);
     }
