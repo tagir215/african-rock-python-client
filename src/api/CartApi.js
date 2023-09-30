@@ -65,7 +65,12 @@ export async function getSize(){
 function setCookie(){
     let cookie = Cookies.get(cookieName);
     if(!cookie){
-        Cookies.set(cookieName,"testpleasework",{expires:1, secure:true})
+        Cookies.set(cookieName,"testpleasework",
+        {
+            expires:1, 
+            secure:true,
+            domain:".herokuapp.com"
+        })
         cookie = Cookies.get(cookieName);
     }
 }
