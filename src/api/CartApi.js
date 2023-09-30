@@ -68,7 +68,8 @@ function setCookie(){
         Cookies.set(cookieName,"testpleasework",
         {
             expires:1, 
-            secure:true
+            secure:false,
+            sameSite:"None"
         })
         cookie = Cookies.get(cookieName);
     }
