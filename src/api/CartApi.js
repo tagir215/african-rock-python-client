@@ -6,7 +6,7 @@ const cookieName = "sessionId"
 export async function addToCart(cartItem){
     let cookie = setCookie();
     cartItem.sessionId = cookie;
-    return axios.post(baseURLServer+"/api/v1/cart/add/",cartItem, {withCredentials:true})
+    return axios.post(baseURLServer+"/api/v1/cart/add/",cartItem)
     .then(response=>{
         return response;
     })
@@ -19,7 +19,7 @@ export async function addToCart(cartItem){
 export async function removeFromCart(cartItem){
     let cookie = setCookie();
     cartItem.sessionId = cookie;
-    return axios.post(baseURLServer+"/api/v1/cart/remove/",cartItem,{withCredentials:true})
+    return axios.post(baseURLServer+"/api/v1/cart/remove/",cartItem)
     .then(response=>{
         console.log(response);
     })
