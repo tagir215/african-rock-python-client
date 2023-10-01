@@ -6,7 +6,7 @@ const cookieName = "sessionId"
 export async function addToCart(cartItem){
     let cookie = setCookie();
     cartItem.sessionId = cookie;
-    return axios.post(baseURLServer+"/api/v1/cart/add/",cartItem)
+    return axios.post(baseURLServer+"/api/v1/cart/add/",cartItem, {withCredentials:true})
     .then(response=>{
         return response;
     })
@@ -19,7 +19,7 @@ export async function addToCart(cartItem){
 export async function removeFromCart(cartItem){
     let cookie = setCookie();
     cartItem.sessionId = cookie;
-    return axios.post(baseURLServer+"/api/v1/cart/remove/",cartItem)
+    return axios.post(baseURLServer+"/api/v1/cart/remove/",cartItem,{withCredentials:true})
     .then(response=>{
         console.log(response);
     })
@@ -71,19 +71,18 @@ export async function getSize(){
     })
 }
 
-function setCookie(){
+function setCookie(cookieName) {
     let cookie = Cookies.get(cookieName);
-    if(!cookie){
-        Cookies.set(cookieName,generateUniqueSessionId(),
-        {
-            expires:1, 
-            secure:false,
-            sameSite:"None"
-        })
-        cookie = Cookies.get(cookieName);
+    if (!cookie) {
+        const sessionId = generateUniqueSessionId();
+        Cookies.set(cookieName, sessionId, {
+            expires: 1, 
+        });
+        return sessionId;
     }
-    return cookie;
+    return cookie; 
 }
+
 
 function generateUniqueSessionId() {
   const timestamp = new Date().getTime();
