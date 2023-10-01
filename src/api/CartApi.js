@@ -4,8 +4,8 @@ import Cookies from "js-cookie";
 const cookieName = "sessionId"
 
 export async function addToCart(cartItem){
-    setCookie();
-
+    let cookie = setCookie();
+    cartItem.sessionId = cookie;
     return axios.post(baseURLServer+"/api/v1/cart/add/",cartItem, {withCredentials:true})
     .then(response=>{
         return response;
@@ -17,7 +17,8 @@ export async function addToCart(cartItem){
 }
 
 export async function removeFromCart(cartItem){
-   
+    let cookie = setCookie();
+    cartItem.sessionId = cookie;
     return axios.post(baseURLServer+"/api/v1/cart/remove/",cartItem,{withCredentials:true})
     .then(response=>{
         console.log(response);
@@ -30,7 +31,9 @@ export async function removeFromCart(cartItem){
 
 
 export async function clearCart(){
-    return axios.post(baseURLServer+"/api/v1/cart/clear",{withCredentials:true})
+    let cookie = setCookie();
+    const url = `${baseURLServer}/api/v1/cart/clear?cookie=${cookie}`;
+    return axios.post(url,null,{withCredentials:true})
     .then(response=>{
         console.log(response);
     })
@@ -41,7 +44,10 @@ export async function clearCart(){
 }
 
 export async function viewCart(){
-    return axios.get(baseURLServer+"/api/v1/cart/view",{withCredentials:true})
+    let cookie = setCookie();
+    const url = `${baseURLServer}/api/v1/cart/view?cookie=${cookie}`;
+
+    return axios.get(url,null,{withCredentials:true})
     .then(response=>{
         return response.data;
     })
@@ -52,7 +58,10 @@ export async function viewCart(){
 }
 
 export async function getSize(){
-    return axios.get(baseURLServer+"/api/v1/cart/get-size",{withCredentials:true})
+    let cookie = setCookie();
+    const url = `${baseURLServer}/api/v1/cart/get-size?cookie=${cookie}`;
+    
+    return axios.get(url,null,{withCredentials:true})
     .then(response=>{
         return response.data;
     })
@@ -65,7 +74,7 @@ export async function getSize(){
 function setCookie(){
     let cookie = Cookies.get(cookieName);
     if(!cookie){
-        Cookies.set(cookieName,"testpleasework",
+        Cookies.set(cookieName,generateUniqueSessionId(),
         {
             expires:1, 
             secure:false,
@@ -73,4 +82,12 @@ function setCookie(){
         })
         cookie = Cookies.get(cookieName);
     }
+    return cookie;
+}
+
+function generateUniqueSessionId() {
+  const timestamp = new Date().getTime();
+  const randomNum = Math.floor(Math.random() * 1000000);
+  const sessionId = `${timestamp}_${randomNum}`;
+  return sessionId;
 }
