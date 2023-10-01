@@ -5,6 +5,7 @@ const cookieName = "sessionId"
 
 export async function addToCart(cartItem){
     let cookie = setCookie();
+    console.log(cookie);
     cartItem.sessionId = cookie;
     return axios.post(baseURLServer+"/api/v1/cart/add/",cartItem, {withCredentials:true})
     .then(response=>{
@@ -71,7 +72,7 @@ export async function getSize(){
     })
 }
 
-function setCookie(cookieName) {
+function setCookie() {
     let cookie = Cookies.get(cookieName);
     if (!cookie) {
         const sessionId = generateUniqueSessionId();
