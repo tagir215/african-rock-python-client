@@ -10,6 +10,7 @@ import ComponentMapper from "../mapper/ComponentMapper"
 export default function OverviewModal() {
     const modalState = useSelector(state => state.modal);
     const computerState = useSelector(state=> state.computer);
+    const cartState = useSelector(state=>state.cart);
     const product = modalState.selectedProduct;
     const dispatch = useDispatch();
 
@@ -31,7 +32,7 @@ export default function OverviewModal() {
     function handleAddToCart(product){
         addToCart(ComponentMapper.productToCartItem(product))
         .then(response=>{
-            dispatch(setSize(response.data))
+            dispatch(setSize(cartState.size+1))
         })
         close();
     }

@@ -42,6 +42,7 @@ export default function Grid() {
 
     return (
         <div className="grid">
+            
             {products.length > 0 && products.map((product, index) => {
                 return (
                     <div key={index} className="product-div" onClick={()=>openModal(product)}>

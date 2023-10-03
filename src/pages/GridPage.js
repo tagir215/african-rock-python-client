@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "../components/navbar/Navbar";
 import Grid from "../components/productGrid/Grid";
 import OverviewModal from "../components/modal/OverviewModal";
+import { useState } from "react";
 import { useLocation } from 'react-router-dom';
 import { getComputers } from "../api/ComputerApi";
 import { useDispatch } from "react-redux";
@@ -14,7 +15,6 @@ export default function GridPage(){
     const computerState = useSelector(state=>state.computer);
     const dispatch = useDispatch();
     const location = useLocation();
-    console.log(computerState.components);
 
     if(!initiated){
         const queryParams = new URLSearchParams(location.search);
@@ -27,7 +27,6 @@ export default function GridPage(){
         initiated = true;
         getComputers({"type":type,"tier":tier,"os":os})
         .then(data=>{
-            console.log(data);
             dispatch(setProducts(data));
         })
     }
@@ -35,6 +34,9 @@ export default function GridPage(){
     return (
         <div className="App">
             <Navbar/>
+            <div className="loading-div-page">
+                {computerState.products.length === 0  &&  <div className="loading-spinner"></div>}
+            </div>
             <Grid />
             <OverviewModal/>
         </div>
