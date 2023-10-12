@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  type:"gaming",
+  type:"basic",
   tier:"budget",
   os:"windows",
   products:[]
