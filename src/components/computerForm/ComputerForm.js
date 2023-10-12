@@ -33,7 +33,7 @@ export default function ComputerForm() {
         <form className="computer-form" onSubmit={handleSubmit}>
             <label>Type</label>
             <select onChange={handleTypeChange}>
-                <option value="basic">Home Office/Productivity PC</option>
+                <option value="basic">Basic/Office PC</option>
                 <option value="work">Server/Workstation PC</option>
                 <option value="gaming">Gaming PC</option>
                 <option value="audio">Audio Production</option>
@@ -41,7 +41,8 @@ export default function ComputerForm() {
                 <option value="hometheater">Home Theater PC (HTPC)</option>
                 <option value="silent">Silent PC</option>
                 <option value="crypto">Cryptocurrency Mining</option>
-                <option value="vr">Virtual Reality (VR) </option>
+                <option value="vr">Virtual Reality (VR)</option>
+                <option value="security">Hacking and Security</option>
             </select>
             <label>Tier</label>
             <select onChange={handleTierChange}>
