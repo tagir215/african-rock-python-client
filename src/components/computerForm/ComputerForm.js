@@ -34,7 +34,7 @@ export default function ComputerForm() {
             <label>Type</label>
             <select onChange={handleTypeChange}>
                 <option value="basic">Home Office/Productivity PC</option>
-                <option value="workstation">Server/Workstation PC</option>
+                <option value="work">Server/Workstation PC</option>
                 <option value="gaming">Gaming PC</option>
                 <option value="audio">Audio Production</option>
                 <option value="ai">AI/Deep Learning</option>
