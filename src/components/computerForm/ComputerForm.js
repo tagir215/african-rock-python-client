@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./ComputerForm.css";
 import { setComputerOS, setComputerType, setComputerTier, setComputerComponents } from '../../redux/ComputerSlice';
 import { useDispatch,useSelector } from 'react-redux';
 
 export default function ComputerForm() {
     const dispatch = useDispatch();
-    const computerState = useSelector(state => state.computer);
-
+    let computerState = useSelector(state => state.computer);
+    console.log(computerState);
     const handleTypeChange = (event) => {
         const selectedType = event.target.value;
         dispatch(setComputerType(selectedType));
@@ -30,7 +30,7 @@ export default function ComputerForm() {
     }
 
     return (
-        <form className="computer-form" onSubmit={handleSubmit}>
+        <form className="computer-form" onSubmit={handleSubmit} autoComplete="off">
             <label>Type</label>
             <select onChange={handleTypeChange}>
                 <option value="basic">Basic/Office PC</option>
