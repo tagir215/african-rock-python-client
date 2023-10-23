@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/african-rock-python-client/static/css/main.08740c44.css",
-    "main.js": "/african-rock-python-client/static/js/main.3b350770.js",
-    "static/js/787.b1cbd91a.chunk.js": "/african-rock-python-client/static/js/787.b1cbd91a.chunk.js",
+    "main.css": "/african-rock-python-client/static/css/main.7573bf35.css",
+    "main.js": "/african-rock-python-client/static/js/main.25114e24.js",
+    "static/js/787.7efd31bd.chunk.js": "/african-rock-python-client/static/js/787.7efd31bd.chunk.js",
     "index.html": "/african-rock-python-client/index.html",
-    "main.08740c44.css.map": "/african-rock-python-client/static/css/main.08740c44.css.map",
-    "main.3b350770.js.map": "/african-rock-python-client/static/js/main.3b350770.js.map",
-    "787.b1cbd91a.chunk.js.map": "/african-rock-python-client/static/js/787.b1cbd91a.chunk.js.map"
+    "main.7573bf35.css.map": "/african-rock-python-client/static/css/main.7573bf35.css.map",
+    "main.25114e24.js.map": "/african-rock-python-client/static/js/main.25114e24.js.map",
+    "787.7efd31bd.chunk.js.map": "/african-rock-python-client/static/js/787.7efd31bd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.08740c44.css",
-    "static/js/main.3b350770.js"
+    "static/css/main.7573bf35.css",
+    "static/js/main.25114e24.js"
   ]
 }
