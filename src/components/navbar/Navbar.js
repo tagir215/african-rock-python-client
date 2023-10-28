@@ -46,7 +46,7 @@ export default function Navbar() {
                 </Link>
             </div>
             <div className="cart">
-                <Link to={"/cart"}>
+                <Link reloadDocument to={"/cart"}>
                     <img id="cart-img" src={process.env.PUBLIC_URL + "/Cart.png"} alt="" />
                 </Link>
                 <span id="cart-number">{cartState.size}</span>

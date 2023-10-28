@@ -7,7 +7,6 @@ import { useNavigate } from "react-router-dom";
 import ComponentMapper from "../mapper/ComponentMapper";
 let alreadyCalled = false;
 export default function Cart({time}){
-    const navigate = useNavigate();
     const cartState = useSelector(state => state.cart);
     const dispatch = useDispatch();
     useEffect(()=>{
